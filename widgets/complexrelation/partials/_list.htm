@@ -1,0 +1,36 @@
+<?php
+    $fieldOptions = $field->options();
+?>
+
+<?php if (count($fieldOptions)): ?>
+
+    <div class="field-checkboxlist">
+        <?php if (count($fieldOptions) > 5): ?>
+            <?php // Scrollable Checkbox list ?>
+            <div class="field-checkboxlist-scrollable">
+                <div class="control-scrollbar" data-control="scrollbar">
+        <?php endif ?>
+
+        <?php foreach ($fieldOptions as $value => $option): ?>
+            <?php
+                if (is_string($option)) $option = [$option];
+            ?>
+            <h3><?= e(trans($option[0])) ?></h3>
+            <?= $this->makePartial('form_widget', ['field' => $formWidgets[$value]]) ?>
+        <?php endforeach ?>
+
+        <?php if (count($fieldOptions) > 5): ?>
+                </div>
+            </div>
+        <?php endif ?>
+
+    </div>
+
+<?php else: ?>
+
+    <?php // No options specified ?>
+    <?php if ($field->placeholder): ?>
+        <p><?= e(trans($field->placeholder)) ?></p>
+    <?php endif ?>
+
+<?php endif ?>

@@ -1,0 +1,7 @@
+<?php if ($field->type === 'checkboxlist'): ?>
+    <div class="relation-widget" id="<?= $this->getId() ?>">
+        <?= $this->makePartial('list', ['field' => $field, 'formWidgets' => $formWidgets]) ?>
+    </div>
+<?php else: ?>
+    <?= $this->makePartial('~/modules/backend/formwidgets/relation/partials/_relation.htm', ['field' => $field]) ?>
+<?php endif ?>

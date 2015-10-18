@@ -1,0 +1,28 @@
+{
+    "name": "myst6re/relation",
+    "type": "october-plugin",
+    "description": "Myst6re Relation plugin",
+    "keywords": ["october", "cms", "relation", "myst6re", "plugin"],
+    "license": "MIT",
+
+    "authors": [
+        {
+            "name": "myst6re",
+            "email": "myst6re@gmail.com"
+        }
+    ],
+    "require": {
+        "php": ">=5.4",
+        "composer/installers": "~1.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Myst6re\\Relation\\": ""
+        }
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "1.0-dev"
+        }
+    }
+}
