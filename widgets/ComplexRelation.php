@@ -61,6 +61,7 @@ class ComplexRelation extends Relation
         $formWidgets = [];
 
         list($model, $attribute) = $this->resolveModelAttribute($this->valueFrom);
+        $relationObject2 = $this->getRelationObject();
         $relationObject = $model->{$attribute};
 
         foreach ($field->options as $id => $option) {
@@ -68,8 +69,10 @@ class ComplexRelation extends Relation
 
             if ($associatedModel && $associatedModel->pivot) {
                 $data = $associatedModel->pivot->getAttributes();
+                $model = $associatedModel->pivot;
             } else {
                 $data = [];
+                $model = $relationObject2->newPivot();
             }
 
             $config = $this->makeConfig($this->form);
